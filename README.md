@@ -1,6 +1,12 @@
 # microservicelearning
 This repo is to learn about microservice architecture and related technologies.
-Input:-
+
+REST endpoints for WebMVC:- <br/>
+
+GET - http://localhost:7070/api/blogs <br/>
+GET - http://localhost:7070/api/blogs/id/{id} <br/>
+POST - http://localhost:7070/api/blogs <br/>
+Request body :-<br/>
 [
     {
         "topicid": "webflux",
@@ -31,3 +37,14 @@ Input:-
         "category": null
     }
 ]
+<br/>
+DELETE - http://localhost:7070/api/blogs/id/{id}
+<br/>
+REST endpoints for WebFlux:-
+<br/>
+GET - http://localhost:6060/api/blogs <br/>
+GET - http://localhost:6060/api/blogs/id/{id} <br/>
+POST - http://localhost:6060/api/blogs <br/>
+DELETE - http://localhost:7070/api/blogs/id/{id} <br/>
+
+<br/>
