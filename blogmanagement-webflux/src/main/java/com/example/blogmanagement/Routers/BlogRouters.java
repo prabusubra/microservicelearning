@@ -11,7 +11,9 @@ import reactor.core.publisher.Mono;
 
 @Configuration
 public class BlogRouters {
-    @Autowired
+    /**
+     * Short hand for blog
+     * @Autowired
     BlogRepository blogRepository;
     @Bean
     public RouterFunction blogroute(){
@@ -27,8 +29,20 @@ public class BlogRouters {
         );
     }
 
+*/
+
+    @Bean
+    public RouterFunction blogroute(BlogHandlers handlers){
+        return RouterFunctions.nest(RequestPredicates.path("/api"),
+                RouterFunctions.route(RequestPredicates.GET("/blogs"),handlers::getAll)
+                        .andRoute(RequestPredicates.GET("/blogs/id/{id}"),handlers::getById)
+                        .andRoute(RequestPredicates.POST("/blogs"),handlers::createData)
+                        .andRoute(RequestPredicates.DELETE("/blogs/id/{id}"),handlers::deleteById)
+        );
+    }
+
 }
-/*
+
 @Component
 class BlogHandlers{
 
@@ -48,4 +62,4 @@ class BlogHandlers{
         return ServerResponse.ok().body(blogRepository.deleteById(req.pathVariable("id")),Void.class);
     }
 
-}*/
+}
