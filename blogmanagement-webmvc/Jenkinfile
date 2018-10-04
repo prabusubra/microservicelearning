@@ -1,0 +1,17 @@
+pipeline {
+    agent any
+    tools {
+        maven 'mymaven'
+    }
+    stages {
+        stage ('hello') {
+            steps {
+               echo "helo..."
+               sh "git config --global http.sslVerify false"
+               sh 'git clone https://prabusubra@github.com/prabusubra/microservicelearning.git'
+               sh 'mvn --file microservicelearning/blogmanagement-webmvc clean verify'
+            }
+        }
+
+    }
+}
