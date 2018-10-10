@@ -1,4 +1,4 @@
 FROM openjdk:8
 COPY target/blogmgtwebflux.jar blogmgtwebflux.jar
-EXPOSE 8040
+EXPOSE 6060
 CMD ["java", "-jar", "blogmgtwebflux.jar"]
